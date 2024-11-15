@@ -1,0 +1,2 @@
+# comparetoconquer
+Hackathon project
