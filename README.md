@@ -1,2 +1,1 @@
-# comparetoconquer
-Hackathon project
+# Stortal
