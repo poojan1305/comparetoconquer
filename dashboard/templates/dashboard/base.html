@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Stortal</title>
+  <link rel="icon" type="image/x-icon" href="{%static 'images/stortal.png'    %}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a href="/" class="navbar-brand">
+     
+        <img src="{%static 'images/stortal.png'    %}" width="40" alt="" class="d-inline-block align-middle mr-2">
+        
+        <span style="font-family: system-ui;color:#ffc107;font-size: inherit;" class=" ex1  font-weight-bold">Stortal</span>
+      </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link px-3" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-3" href="/about">About </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle px-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/todo">Todo</a>
+            <a class="dropdown-item" href="/homework">Homework</a>
+            <a class="dropdown-item" href="/notes">Notes</a>
+            <a class="dropdown-item" href="/youtube">Youtube</a>
+            <a class="dropdown-item" href="/books">Books</a>
+            <a class="dropdown-item" href="/shorten">Shorten Url</a>
+           
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-3" href="/contact">Contact Us </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-3" href="/faq">FAQ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-3" href="/news">News</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-3" href="/donate">Donate</a>
+        </li>
+
+
+
+      
+
+
+            
+        {% if request.user.is_authenticated   %}
+         
+        
+        <li class="nav-item px-2">
+            <a href="{% url 'logout' %}"><button type="button" class="btn btn-success">Logout</button></a>
+          </li>
+       {% else %}
+         <li class="nav-item px-2 ">
+        <a href="{% url 'login' %}"><button type="button" class="btn btn-success">Login</button></a>
+      </li>
+      {% endif %}
+   
+
+
+
+       
+      </ul>
+      
+      <form class="form-inline my-2 my-lg-0 px-3">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button></a>
+      </form>
+     
+   
+
+{% if  request.user.is_authenticated %}
+<ul>
+<li class="nav-item px-2">
+  <a href="{% url 'profile' %}"><button type="button" class="btn btn-success">Profile</button></a>
+</li>
+</ul>
+</div>
+{% else %}
+{% endif %}
+  </nav>
+
+    {% block content %}
+    {% endblock content %}
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-4">
+                    <div class="widget1">
+                        <div class="logo">
+                            <img src="https://i.ibb.co/4Tm7Wzv/STORTAL-free-file.png" alt="STORTAL-free-file" class="img-fluid" alt="">
+                        </div>
+                       
+                        <div class="socialLinks">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fab fa-google-plus-g"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="widget2">
+                        <h5>
+    Facts                     </h5>
+                        <div class="media">
+                            <img class="img-fluid" src="https://i.ibb.co/CKNmhMX/blog1.jpg" alt="">
+                            <div class="media-body d-flex align-self-center">
+                                <div class="content">
+                                    <a href="#">
+                                        <p>
+                                          “Education is the passport to the future, for tomorrow belongs to those who prepare for it today.” 
+                                        </p>
+                                    </a>
+                                    <span>
+                                      — Malcolm X
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <img class="img-fluid" src="https://i.ibb.co/m5yGbdR/blog2.jpg" alt="">
+                            <div class="media-body d-flex align-self-center">
+                                <div class="content">
+                                    <a href="#">
+                                        <p>
+                                          “Never let the fear of striking out stop you from playing the game.”
+                                        </p>
+                                    </a>
+                                    <span>
+                                      - Babe Ruth
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-2">
+                    <div class="widget3">
+                        <h5>
+                            Quick Links
+                        </h5>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    about
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    contact
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    privacy
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    skills
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    career
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-2">
+                    <div class="widget4">
+                        <h5>
+                            Other Links
+                        </h5>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                   web development
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    App development
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Machine learning
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Game development
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    redpen
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    codepen
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyRightArea">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                      <p> Designed with ❤️ </i>by Poojan Shah</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="{% static 'js/home.js' %}"></script>
+
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>
